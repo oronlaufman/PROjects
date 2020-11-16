@@ -7,7 +7,7 @@ class Config:
     """
     Basic configurations relevant for all environments (dev and prod).
     """
-    SECRET_KEY = os.getenv('SECRET_KEY', 'bigsecret')
+    SECRET_KEY = os.getenv('SECRET_KEY', 'bigsecret') # this really should be secret
     SECURITY_PASSWORD_HASH = os.getenv('SECURITY_PASSWORD_HASH', 'bcrypt')
     DEBUG = False
 
@@ -23,7 +23,7 @@ class DevelopmentConfig(Config):
 
 class ProductionConfig(Config):
     """
-    Configurations for the production environment - heruko environment
+    Configurations for the production environment - external environment
     """
     DEBUG = False
     # SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', HERUKO_POSTGRES)
