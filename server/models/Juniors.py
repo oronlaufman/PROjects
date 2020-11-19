@@ -1,4 +1,4 @@
-from main import db
+from server.models import db
 
 
 class Juniors(db.Model):
