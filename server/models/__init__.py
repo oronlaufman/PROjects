@@ -10,7 +10,7 @@ def init_db(app):
     Args:
         app: The app to connect the db to
     """
-    from .Juniors import Juniors
+    from .Junior import Junior
 
     with app.app_context():
         db.create_all()
