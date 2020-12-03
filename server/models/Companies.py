@@ -13,7 +13,7 @@ class Company(db.Model):
     password_hash = db.Column(db.String(120), nullable=False)
     location = db.Column(db.String(120)) 
     # image = db.Column()
-    # projects_array = db.Column(db.Array)
+    projects_array = db.Column(db.ARRAY(db.String(50)))
     website = db.Column(db.String(120))
     about_me = db.Column(db.Text)
 

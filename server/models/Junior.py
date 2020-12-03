@@ -1,6 +1,5 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-
-from server.models import db
+from server.models import db, ProfileImage
 
 
 class Junior(db.Model):
@@ -11,8 +10,8 @@ class Junior(db.Model):
     password_hash = db.Column(db.String(120), nullable=False)
     full_name = db.Column(db.String(120), nullable=False)
     phone_number = db.Column(db.Text)
-    # image = db.Column()
-    # skills = db.Column(db)
+    image = db.Column(db.ARRAY(ProfileImage.as_mutable(Json)))
+    skills = db.Column(db.ARRAY(db.String(50)))
     website = db.Column(db.String(120))
     about_me = db.Column(db.Text)
 

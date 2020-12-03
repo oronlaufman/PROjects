@@ -8,9 +8,9 @@ class Company(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     company_name = db.Column(db.String(120), nullable=False)
-    junior_name = db.Column(db.Array, nullable=False)
+    junior_name = db.Column(db.ARRAY(db.String(50)), nullable=False)
     description = db.Column(db.Text)
-    field = db.Column(db.Array) 
+    field = db.Column(db.ARRAY(db.String(50))) 
     status = db.Column(db.String(120))
     password_hash = db.Column(db.String(120), nullable=False)
 
