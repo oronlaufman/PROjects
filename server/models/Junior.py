@@ -1,9 +1,11 @@
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+
 
 from server.models import db
 
 
-class Junior(db.Model):
+class Junior(UserMixin, db.Model):
     __tablename__ = 'Juniors'
 
     id = db.Column(db.Integer, primary_key=True)
