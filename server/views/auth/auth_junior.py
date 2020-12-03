@@ -4,6 +4,8 @@ from flask_login import login_required, logout_user, current_user, login_user
 from server.models.Junior import Junior
 from server.models import db , login_manager
 
+def hello():
+        return jsonify({'message' : 'Hello'})
 
 def junior_register():
     # Bypass if user is logged in
