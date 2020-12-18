@@ -1,9 +1,10 @@
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 from server.models import db
 
 
-class Company(db.Model):
+class Company(UserMixin, db.Model):
     __tablename__ = 'Companies'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -13,7 +14,6 @@ class Company(db.Model):
     password_hash = db.Column(db.String(120), nullable=False)
     location = db.Column(db.String(120)) 
     # image = db.Column()
-    # projects_array = db.Column(db.Array)
     website = db.Column(db.String(120))
     about_me = db.Column(db.Text)
 
@@ -26,7 +26,7 @@ class Company(db.Model):
         self.about_me = about_me
 
     def __repr__(self):
-        return f"<User {self.username}>"
+        return f"<Company Name {self.company_name}>"
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

@@ -1,26 +1,30 @@
-from flask import Flask
+
+from flask import Flask, config, Blueprint
 
 from .config import config_by_mode
-from server.models import db, init_db
-from server.views.auth import register, login
+from server.models import db, init_db , login_manager
 
+from server.views.auth_bp.view import auth_bp
+from server.views.home_bp.view import home_bp
+from server.views.portfolio_bp.view import portfolio_bp
+from server.views.new_project_bp.view import new_project_bp
+from server.views.join_project_bp.view import join_project_bp
 
 def create_app(config_mode):
-    """
-    Factory to create the Flask instance
-    Args:
-        config_mode: The configuration in which we want to run the current app
 
-    Returns:
-        A Flask instance
-    """
     app = Flask(__name__)
     app.config.from_object(config_by_mode[config_mode])
 
     db.init_app(app)
     init_db(app)
 
-    app.add_url_rule('/auth/register', 'register', register, methods=['POST'])
-    app.add_url_rule('/auth/login', 'login', login, methods=['POST'])
+    login_manager.init_app(app)
 
+    app.register_blueprint(auth_bp, url_prefix='/auth')
+    app.register_blueprint(home_bp, url_prefix='/home')
+    app.register_blueprint(portfolio_bp, url_prefix='/portfolio')
+    app.register_blueprint(new_project_bp, url_prefix='/new_project')
+    app.register_blueprint(join_project_bp, url_prefix='/join_project')
+
+  
     return app
