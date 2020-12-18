@@ -18,13 +18,14 @@ def company_register():
         password = data.get('password')
         remember_me = data.get('remember_me')
         new_company = Company(
-            email,
             data.get('company_name'),
+            email,
             data.get('phone_number'),
-            data.get('website'),
             data.get('location'),
+            data.get('website'),
             data.get('about_me')
         )
+        new_company.set_password(password)
 
         db.session.add(new_company)
         db.session.commit()

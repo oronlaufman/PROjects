@@ -13,7 +13,8 @@ def init_db(app):
     """
     from .Junior import Junior
     from .Company import Company
-
+    from .Project import Project
+    from .Projects_Juniors_Relation import Projects_Juniors_Relation
 
     with app.app_context():
         db.create_all()
