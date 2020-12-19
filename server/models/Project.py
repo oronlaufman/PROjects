@@ -20,6 +20,13 @@ class Project(db.Model):
     def __repr__(self):
         return f"<id {self.id}>"
 
+    def get_projects(lim=None):
+        return Project.query.limit(lim).all()
+
+    def add_new_project(new_project):
+        db.session.add(new_project)
+        db.session.commit()
+
     def dump(self):
         return {'id': self.id,
                 'company_id': self.company_id,

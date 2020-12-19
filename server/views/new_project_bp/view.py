@@ -13,9 +13,7 @@ def create_new_project():
             data.get('field'), 
             data.get('status'))
 
-    db.session.add(new_project)
-    db.session.commit()
-
+    add_new_project(new_project)
     return jsonify({'message': 'project created successfully'}), 200
 
 new_project_bp.add_url_rule('', 'create_new_project', create_new_project, methods=['POST'])
