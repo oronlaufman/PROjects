@@ -7,8 +7,8 @@ home_bp = Blueprint('home', __name__)
 def home_page():
     all_juniors = Junior.query.limit(10).all()
     all_projects = Project.query.limit(10).all()
-    json_string_juniors = json.dumps([junior.dump() for junior in all_juniors])
-    json_string_projects = json.dumps([project.dump() for project in all_projects])
+    json_string_juniors = [junior.dump() for junior in all_juniors]
+    json_string_projects = [project.dump() for project in all_projects]
     joint_json_string = {"juniors_json": json_string_juniors,
                          "projects_json": json_string_projects}
     return joint_json_string

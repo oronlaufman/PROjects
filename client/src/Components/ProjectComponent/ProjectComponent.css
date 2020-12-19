@@ -1,0 +1,26 @@
+.Carousel {
+    margin-top: auto;
+}
+
+.Carousel h3 {
+    font-family: "Trebuchet MS", sans-serif;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    color: #555454;
+}
+
+.ProjectItem {
+    padding: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 48px;
+    max-width: 30%;
+    max-height: 50%;
+}
