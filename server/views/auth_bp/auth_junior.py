@@ -24,9 +24,7 @@ def junior_register():
             data.get('about_me')
         )
         new_junior.set_password(password)
-
-        db.session.add(new_junior)
-        db.session.commit()
+        add_new_junior(new_junior)
 
         if remember_me:
             login_user(new_junior, remember=true) # Log in with the newly created user with remember me on

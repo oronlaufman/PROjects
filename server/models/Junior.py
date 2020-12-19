@@ -33,6 +33,13 @@ class Junior(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def get_juniors(lim=None):
+        return Junior.query.limit(lim).all() 
+
+    def add_new_junior(new_junior):
+        db.session.add(new_junior)
+        db.session.commit()
+
     def dump(self):
         return {'id': self.id,
                 'email': self.email,

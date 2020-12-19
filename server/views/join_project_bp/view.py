@@ -14,9 +14,7 @@ def join_project(project_id):
         project_id,
         junior_id
     )
-
-    db.session.add(new_project_junior_relation)
-    db.session.commit()
+    add_new_relation(new_project_junior_relation)
     return jsonify({'message': 'user joined project successfully'}), 200
 
 

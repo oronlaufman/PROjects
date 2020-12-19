@@ -26,9 +26,7 @@ def company_register():
             data.get('about_me')
         )
         new_company.set_password(password)
-
-        db.session.add(new_company)
-        db.session.commit()
+        add_new_compnany(new_company)
 
         if remember_me:
             login_user(new_company, remember=true) # Log in with the newly created user with remember me on

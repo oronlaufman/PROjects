@@ -1,0 +1,13 @@
+*/__pycache__/*
+server/__pycache__/__init__.cpython-39.pyc
+server/__pycache__/config.cpython-39.pyc
+server/models/__pycache__/__init__.cpython-39.pyc
+server/models/__pycache__/Company.cpython-39.pyc
+server/models/__pycache__/Junior.cpython-39.pyc
+server/views/__pycache__/__init__.cpython-39.pyc
+server/views/__pycache__/auth_company.cpython-39.pyc
+server/views/__pycache__/auth_junior.cpython-39.pyc
+server/views/__pycache__/auth.cpython-39.pyc
+server/views/auth/__pycache__/auth_company.cpython-39.pyc
+server/views/auth/__pycache__/auth_junior.cpython-39.pyc
+server/views/auth/__pycache__/view.cpython-39.pyc
