@@ -21,15 +21,15 @@ class Project(db.Model):
         return f"<id {self.id}>"
 
     def get_projects(lim=None):
-        return Project.query.limit(lim).all()
+        return Project.query.limit(lim).all() 
 
     def add_new_project(new_project):
         db.session.add(new_project)
         db.session.commit()
 
-    def dump(self):
+    def dump(self,company_name):
         return {'id': self.id,
-                'company_id': self.company_id,
+                'company_name': company_name,
                 'description': self.description,
                 'field': self.field,
                 'status': self.status}

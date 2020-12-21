@@ -2,7 +2,7 @@ from flask import jsonify, request
 from flask_login import login_required, logout_user, current_user, login_user
 
 from server.models.Company import Company
-from server.models import db , login_manager
+from server.models import login_manager
 
 
 def company_register():
@@ -26,7 +26,7 @@ def company_register():
             data.get('about_me')
         )
         new_company.set_password(password)
-        add_new_compnany(new_company)
+        Company.add_new_company(new_company)
 
         if remember_me:
             login_user(new_company, remember=true) # Log in with the newly created user with remember me on

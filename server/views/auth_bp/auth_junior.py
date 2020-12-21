@@ -2,7 +2,7 @@ from flask import jsonify, request
 from flask_login import login_required, logout_user, current_user, login_user
 
 from server.models.Junior import Junior
-from server.models import db , login_manager
+from server.models import login_manager
 
 def junior_register():
     # Bypass if user is logged in
@@ -24,7 +24,7 @@ def junior_register():
             data.get('about_me')
         )
         new_junior.set_password(password)
-        add_new_junior(new_junior)
+        Junior.add_new_junior(new_junior)
 
         if remember_me:
             login_user(new_junior, remember=true) # Log in with the newly created user with remember me on
