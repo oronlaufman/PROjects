@@ -12,7 +12,7 @@ const NavBarComponent = () => {
                     <Nav.Link href="/">HOME</Nav.Link>
                     <Nav.Link href="/home/projects">PROJECTS</Nav.Link>
                     <Nav.Link href="/home/juniors">JUNIORS</Nav.Link>
-                    <Nav.Link className="ml-auto" style={{alignSelf: "right"}}>ABOUT</Nav.Link>
+                    <Nav.Link href="/home/about" className="ml-auto" style={{alignSelf: "right"}}>ABOUT</Nav.Link>
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />

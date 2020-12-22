@@ -1,0 +1,34 @@
+.AboutDiv {
+    font-family: "Trebuchet MS", sans-serif;
+    text-align: center;
+}
+
+.AboutHeader {
+    margin: 30px;
+    padding: 20px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 3em;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+}
+
+h3 {
+    margin: 30px;
+    padding: 20px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 2em;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+p {
+    display: block;
+    margin: auto;
+    width: 60%;
+    font-size: 1em;
+}
+
+span {
+    font-size: 80%;
+}

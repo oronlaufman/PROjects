@@ -1,0 +1,10 @@
+.ProjectListHeader {
+    margin: 30px;
+    padding: 20px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 3em;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
