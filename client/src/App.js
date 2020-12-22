@@ -6,6 +6,9 @@ import NavBarComponent from './Components/NavBarComponent/NavBarComponent';
 import LandingComponent from './Components/LandingComponent/LandingComponent';
 import ProjectCarouselComponent from './Components/ProjectComponent/ProjectCarouselComponent';
 import RegisterComponent from './Components/RegisterComponent/RegisterComponent';
+import AllProjectsComponent from './Components/ProjectComponent/AllProjectsComponent';
+import AllJuniorsComponent from './Components/JuniorComponent/AllJuniorsComponent';
+import AboutComponent from './Components/AboutComponent/AboutComponent';
 
 
 class App extends Component {
@@ -21,6 +24,15 @@ class App extends Component {
             </Route>
             <Route path="/register">
               <RegisterComponent />
+            </Route>
+            <Route path="/home/projects">
+              <AllProjectsComponent />
+            </Route>
+            <Route path="/home/juniors">
+              <AllJuniorsComponent />
+            </Route>
+            <Route path="/home/about">
+              <AboutComponent />
             </Route>
           </div>
         </div>
