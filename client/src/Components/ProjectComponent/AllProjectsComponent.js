@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import {Carousel, Row} from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 
 import ProjectComponent from './ProjectComponent';
+import FilterProjectsComponent from './FilterProjectsComponent';
 import './ProjectComponent.css';
+import './AllProjectsComponent.css';
 
-class ProjectCarouselComponent extends Component {
+class AllProjectComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -33,13 +35,13 @@ class ProjectCarouselComponent extends Component {
 
     componentDidMount() {
         window.addEventListener('scroll', this.scrollEventHandler);
-        fetch("/home")
+        fetch("/home/projects")
             .then(res => res.json())
             .then(
                 (result) => {
                 this.setState({
                     isLoaded: true,
-                    items: result.projects_json
+                    items: result
                 });
             },
             (error) => {
@@ -61,31 +63,29 @@ class ProjectCarouselComponent extends Component {
         else if (!isLoaded) {
             return <div>Loading...</div>}
         else { 
-            return (<div className="Carousel" style={this.state}>
-            <h3>Our Open Projects</h3>
-            <Carousel>
-                <Carousel.Item interval={1000}>
-                    <Row style={RowStyle}>
-                        {items.slice(0,3).map((project) => (
-                            <ProjectComponent cardTitle={project.company_name} cardText={project.description} cardLink="#"/>))}
-                    </Row>
-                </Carousel.Item>
-                <Carousel.Item interval={500}>
-                    <Row style={RowStyle}>
-                    {items.slice(3,6).map((project) => (
-                            <ProjectComponent cardTitle={project.company_name} cardText={project.description} cardLink="#"/>))}
-                    </Row>
-                </Carousel.Item>
-                <Carousel.Item >
-                    <Row style={RowStyle}>
-                    {items.slice(6,9).map((project) => (
-                            <ProjectComponent cardTitle={project.company_name} cardText={project.description} cardLink="#"/>))}
-                    </Row>
-                </Carousel.Item>
-            </Carousel>
-        </div>)
+            const field_array = ["Marketing", "App Development", "Web Development",
+                                "Logo Design", "Web Design", "Financial Aid", "Legal Aid", "Sales"]
+            const status_array = ["Not Started", "In Progress", "Completed"]
+            
+            const projects_array = (<Row style={RowStyle}>
+                {items.map((project) => (
+                    <ProjectComponent className="col-sm-4"
+                        cardTitle={project.company_name} 
+                        cardText={project.description} 
+                        cardLink="#"/>))}
+                </Row>)
+            return <div className="ProjectsList" style={this.state}>
+                        <h1 class="ProjectListHeader">All of Our Projects</h1>
+                        <FilterProjectsComponent className="FilterComp"
+                                                 optionArray={field_array}
+                                                 filterName="fieldFilter"/>
+                        <FilterProjectsComponent className="FilterComp"
+                                                optionArray={status_array}
+                                                filterName="statusFilter"/>
+                        {projects_array}
+                    </div>
         }            
     }
 }
 
-export default ProjectCarouselComponent;
+export default AllProjectComponent;

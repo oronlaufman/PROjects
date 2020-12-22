@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import {Navbar, Nav, Form, FormControl, Button, NavLink} from 'react-bootstrap';
 
 import './NavBarComponent.css';
 
@@ -9,10 +9,10 @@ const NavBarComponent = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/">HOME</Nav.Link>
-                    <Nav.Link href="/home/projects">PROJECTS</Nav.Link>
-                    <Nav.Link href="/home/juniors">JUNIORS</Nav.Link>
-                    <Nav.Link className="ml-auto" style={{alignSelf: "right"}}>ABOUT</Nav.Link>
+                    <Nav.Link href="/" activeClassName="active">HOME</Nav.Link>
+                    <Nav.Link href="/home/projects" activeClassName="active">PROJECTS</Nav.Link>
+                    <Nav.Link href="/home/juniors" activeClassName="active">JUNIORS</Nav.Link>
+                    <Nav.Link href="/home/about" activeClassName="active" className="ml-auto" style={{alignSelf: "right"}}>ABOUT</Nav.Link>
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />

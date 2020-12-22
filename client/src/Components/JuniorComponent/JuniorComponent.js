@@ -1,12 +1,12 @@
 import React from 'react';
 import {MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn, MDBCardSu} from 'mdbreact';
 
-import './ProjectComponent.css';
+import './JuniorComponent.css';
 
-const ProjectComponent = props => {
+const JuniorComponent = props => {
 
     return (
-        <div className="ProjectItem">
+        <div className="JuniorItem">
             <MDBCol style={{ maxWidth: "22rem"}}>
                 <MDBCard style={{boxShadow: "0 8px 6px -6px #4d4d4d"}}>
                     <MDBCardImage 
@@ -15,7 +15,7 @@ const ProjectComponent = props => {
                         waves />
                     <MDBCardBody>
                         <MDBCardTitle>{props.cardTitle}</MDBCardTitle>
-                        <h8 className="indigo-text"><strong>Field</strong></h8>
+                        <h8 className="indigo-text"><strong>Field of work</strong></h8>
                         <MDBCardText>{props.cardText}</MDBCardText>
                         <MDBBtn href={props.cardLink}>Learn More</MDBBtn>
                     </MDBCardBody>
@@ -25,4 +25,4 @@ const ProjectComponent = props => {
     )
 }
 
-export default ProjectComponent;
+export default JuniorComponent;

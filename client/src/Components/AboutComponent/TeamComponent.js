@@ -1,23 +1,26 @@
 import React from 'react';
 import {MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn, MDBCardSu} from 'mdbreact';
+import { FaFacebookSquare, FaLinkedin } from 'react-icons/fa';
 
-import './ProjectComponent.css';
+import './TeamComponent.css';
 
-const ProjectComponent = props => {
+const TeamComponent = props => {
 
     return (
-        <div className="ProjectItem">
+        <div className="TeamItem">
             <MDBCol style={{ maxWidth: "22rem"}}>
                 <MDBCard style={{boxShadow: "0 8px 6px -6px #4d4d4d"}}>
                     <MDBCardImage 
                         className="img-fluid" 
-                        src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+                        src={props.cardImage}
                         waves />
                     <MDBCardBody>
                         <MDBCardTitle>{props.cardTitle}</MDBCardTitle>
-                        <h8 className="indigo-text"><strong>Field</strong></h8>
                         <MDBCardText>{props.cardText}</MDBCardText>
-                        <MDBBtn href={props.cardLink}>Learn More</MDBBtn>
+                        <MDBBtn className="col-sm-4" href={props.cardFB}>
+                            <FaFacebookSquare size={30}/></MDBBtn>
+                        <MDBBtn className="col-sm-4" href={props.cardLD}>
+                            <FaLinkedin size={30}/></MDBBtn>
                     </MDBCardBody>
                 </MDBCard>
             </MDBCol>
@@ -25,4 +28,4 @@ const ProjectComponent = props => {
     )
 }
 
-export default ProjectComponent;
+export default TeamComponent;

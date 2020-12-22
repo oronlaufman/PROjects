@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {Carousel, Row} from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 
-import ProjectComponent from './ProjectComponent';
-import './ProjectComponent.css';
+import JuniorComponent from './JuniorComponent';
+import './JuniorComponent.css';
+import './AllJuniorsComponent.css';
 
-class ProjectCarouselComponent extends Component {
+class AllJuniorsComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -33,13 +34,13 @@ class ProjectCarouselComponent extends Component {
 
     componentDidMount() {
         window.addEventListener('scroll', this.scrollEventHandler);
-        fetch("/home")
+        fetch("/home/juniors")
             .then(res => res.json())
             .then(
                 (result) => {
                 this.setState({
                     isLoaded: true,
-                    items: result.projects_json
+                    items: result
                 });
             },
             (error) => {
@@ -61,31 +62,19 @@ class ProjectCarouselComponent extends Component {
         else if (!isLoaded) {
             return <div>Loading...</div>}
         else { 
-            return (<div className="Carousel" style={this.state}>
-            <h3>Our Open Projects</h3>
-            <Carousel>
-                <Carousel.Item interval={1000}>
-                    <Row style={RowStyle}>
-                        {items.slice(0,3).map((project) => (
-                            <ProjectComponent cardTitle={project.company_name} cardText={project.description} cardLink="#"/>))}
-                    </Row>
-                </Carousel.Item>
-                <Carousel.Item interval={500}>
-                    <Row style={RowStyle}>
-                    {items.slice(3,6).map((project) => (
-                            <ProjectComponent cardTitle={project.company_name} cardText={project.description} cardLink="#"/>))}
-                    </Row>
-                </Carousel.Item>
-                <Carousel.Item >
-                    <Row style={RowStyle}>
-                    {items.slice(6,9).map((project) => (
-                            <ProjectComponent cardTitle={project.company_name} cardText={project.description} cardLink="#"/>))}
-                    </Row>
-                </Carousel.Item>
-            </Carousel>
-        </div>)
+            const juniors_array = (<Row style={RowStyle}>
+                            {items.map((Junior) => (
+                                <JuniorComponent className="col-sm-4"
+                                    cardTitle={Junior.full_name} 
+                                    cardText={Junior.about_me} 
+                                    cardLink="#"/>))}
+                            </Row>)
+            return <div className="JuniorsList" style={this.state}>
+                        <h1 class="JuniorListHeader">All of Our Juniors</h1>
+                        {juniors_array}
+                    </div>
         }            
     }
 }
 
-export default ProjectCarouselComponent;
+export default AllJuniorsComponent;
